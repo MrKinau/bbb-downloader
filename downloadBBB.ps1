@@ -1,7 +1,3 @@
-# Variables - CHANGE THIS TO YOUR NEEDS
-
-$bbbHost = "https://scalelite.rlp.net" # no "/" at end 
-
 # Functions
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -26,7 +22,10 @@ $resultFileName = Read-Host -Prompt 'Name of the resultant file'
 $resultFileName += ".mp4"
 $parts = $bbbUrl -split "meetingId="
 $meetingId = $parts[1]
+$bbbHost = $parts[0] -split "/playback"
+$bbbHost = $bbbHost[0]
 Write-Host "Your MeetingID: $meetingId"
+Write-Host "Your BBB-Host: $bbbHost"
 
 # Download sound
 
