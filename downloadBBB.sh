@@ -2,7 +2,7 @@
 read -p "Copy BBB-Link here: " bbbUrl
 read -p "Name of the resultant file: " resultFileName
 resultFileName="${resultFileName}.mp4"
-meetingId=$(echo $bbbUrl | grep -o "meetingId=.*" | sed "s/meetingId=//g")
+meetingId=$(echo $bbbUrl | grep -o "/presentation/[0-9]*\.[0-9]*/.*" | sed "s,/presentation/[0-9]*\.[0-9]*/,,g")
 bbbHost=$(echo $bbbUrl | grep -o ".*/playback/presentation" | sed "s#/playback/presentation##g")
 
 echo "Your MeetingID: $meetingId"
